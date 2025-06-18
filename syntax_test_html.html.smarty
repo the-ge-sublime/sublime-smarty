@@ -35,7 +35,18 @@
 
 
 {* https://smarty-php.github.io/smarty/stable/designers/language-basic-syntax/language-syntax-variables/ *}
-{$foo}        <-- displaying a simple variable (non array/object)
+ {$foo}          <-- displaying a simple variable (non array/object)
+|^ punctuation.section.embedded.begin.smarty
+| ^ punctuation.definition.variable.smarty
+| ^^^^ variable.other.smarty
+|     ^ punctuation.section.embedded.begin.smarty
+ {$foo nofilter nocache} <-- displaying a simple variable with flag
+|^ punctuation.section.embedded.begin.smarty
+| ^ punctuation.definition.variable.smarty
+| ^^^^ variable.other.smarty
+|     ^^^^^^^^^ support.function.flag.smarty
+|              ^^^^^^^^ support.function.flag.smarty
+|                      ^ punctuation.section.embedded.begin.smarty
 {$foo[4]}     <-- display the 5th element of a zero-indexed array
 |^^^^^^^^ meta.tag.smarty
 |        ^ - meta.tag.smarty
