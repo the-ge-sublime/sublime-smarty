@@ -50,12 +50,13 @@ contexts:
     - match: (?=\{#)
       push:
         - clear_scopes: 1
-        - match: '(\{#)(\S+)(#\})'
+        - match: '(\{)(#\S+#)( \w+)*(\})'
           captures:
             0: meta.tag.smarty
             1: punctuation.definition.begin.smarty
-            2: variable.other.smarty
-            3: punctuation.definition.end.smarty
+            2: support.constant.smarty
+            3: support.function.flag.smarty
+            4: punctuation.definition.end.smarty
           pop: 1
     - match: '\{(?=\S)'
       scope: punctuation.section.embedded.begin.smarty

@@ -71,8 +71,9 @@
 {$foo->bar()} <-- display the return value of object method "bar"
 |    ^^ punctuation.accessor.arrow.smarty
 |      ^^^ variable.function.smarty
-{#foo#}       <-- display the config file variable "foo"
-|^^^^^^ meta.tag.smarty
+{#foo# nofilter}       <-- display the config file variable "foo"
+|^^^^^ support.constant.smarty
+|      ^^^^^^^^ support.function.flag.smarty
 {$smarty.config.foo} <-- synonym for {#foo#}
 {$foo[bar]}   <-- syntax only valid in a section loop, see {section}
 {assign var=foo value='baa'}{$foo} <--  displays "baa", see {assign}
@@ -113,17 +114,15 @@ Math and embedding tags:
 <html>
     <title>{#pageTitle#}</title>
 |          ^^^^^^^^^^^^^ meta.tag.smarty
-|                       ^ - meta.tag.smarty
-|          ^^ punctuation.definition.begin.smarty
-|            ^^^^^^^^^ variable.other.smarty
-|                     ^^ punctuation.definition.end.smarty
+|          ^ punctuation.definition.begin.smarty
+|           ^^^^^^^^^^^ support.constant.smarty
+|                      ^ punctuation.definition.end.smarty
     <body bgcolor="{#bodyBgColor#}">
         |          ^^^^^^^^^^^^^^^ - string
         |          ^^^^^^^^^^^^^^^ meta.tag.smarty
-        |                         ^ - meta.tag.smarty
-        |          ^^ punctuation.definition.begin.smarty
-        |            ^^^^^^^^^^^ variable.other.smarty
-        |                       ^^ punctuation.definition.end.smarty
+        |          ^ punctuation.definition.begin.smarty
+        |           ^^^^^^^^^^^^^ support.constant.smarty
+        |                        ^ punctuation.definition.end.smarty
         <table border="{#tableBorderSize#}" bgcolor="{#tableBgColor#}">
             <tr bgcolor="{#rowBgColor#}">
                 <td>First</td>
